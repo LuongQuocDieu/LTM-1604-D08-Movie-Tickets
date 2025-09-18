@@ -56,14 +56,17 @@ Người dùng:
 ## 3. Hình ảnh các chức năng
 
 --- Chức năng đăng nhập ---
-<img width="1920" height="919" alt="image" src="https://github.com/user-attachments/assets/624c1ca9-52e0-4f97-b634-3cb68b79d5f1" />
+<img width="1920" height="919" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/dangnhap.png" />
+<img width="1920" height="919" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/dangky.png" />
 --- Giao diện trang chủ ---
-<img width="1910" height="921" alt="image" src="https://github.com/user-attachments/assets/c020691e-cca0-47d2-be13-f6c8449e675b" />
+<img width="1910" height="921" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/giaodienchinh.png" />
 --- Giao diện trang quản lý ---
 <img width="1920" height="923" alt="image" src="https://github.com/user-attachments/assets/e7554fab-9f6b-4150-8586-359cea51f592" />
 --- Quản lý phim ---
-<img width="1920" height="921" alt="image" src="https://github.com/user-attachments/assets/27eefab0-d3a4-4d85-89c0-38508244bc92" />
---- Quản lý rạp chiếu ---
-<img width="1920" height="435" alt="image" src="https://github.com/user-attachments/assets/0de63dce-8d75-4207-9918-6d8c3cf1d933" />
---- Quản lý đặt vé ---
-<img width="1397" height="693" alt="image" src="https://github.com/user-attachments/assets/ffb80c7b-e0de-40f8-85da-8beaff2ecc72" />
+<img width="1920" height="921" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/quanlyphim.png" />
+--- Quản lý xuất chiếu ---
+<img width="1920" height="435" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/quanlyxuatchieu.png" />
+--- Quản lý phòng chiếu ---
+<img width="1397" height="693" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/quanlyxuatchieu.png" />
+--- Cơ sở dữ liệu ---
+<img width="1397" height="693" alt="image" src="https://github.dev/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/25e10fd7e39d5a8f2157519e962cb2c3ad6257bf/docs/SQL.png" />
