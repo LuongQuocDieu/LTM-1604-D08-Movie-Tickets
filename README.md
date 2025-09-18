@@ -19,7 +19,7 @@
 
 </div>
 ---
-## 1. Giới thiệu hệ thống
+### 1. Giới thiệu hệ thống
 
 Hệ thống Quản lý Đặt vé Xem phim được xây dựng nhằm hỗ trợ người dùng dễ dàng tra cứu thông tin phim, lịch chiếu, đặt vé trực tuyến và quản lý vé đã đặt một cách thuận tiện.
 Đối với quản trị viên, hệ thống cung cấp các chức năng quản lý dữ liệu phim, lịch chiếu, phòng chiếu, vé và theo dõi doanh thu, giúp việc vận hành rạp phim hiệu quả và chính xác hơn.
