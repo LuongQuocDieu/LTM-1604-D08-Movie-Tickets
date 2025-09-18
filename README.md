@@ -90,7 +90,7 @@ Một số project sinh viên đã thực hiện:
    - Tải và cài đặt NetBeans IDE: [https://netbeans.apache.org/](https://netbeans.apache.org/)
 
 **Cài đặt MySQL**  
-   - Cài đặt MySQL hoặc XAMPP: [https://www.mysql.com/](https://www.mysql.com/) / [https://www.apachefriends.org/](https://www.apachefriends.org/)  
+   - Cài đặt MySQL : [https://www.mysql.com/](https://www.mysql.com/) / [https://www.apachefriends.org/](https://www.apachefriends.org/)  
    - Khởi động MySQL.
 
 **Tạo cơ sở dữ liệu**  
