@@ -70,3 +70,39 @@ Người dùng:
 <img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/quanlyphongchieu.png" />
 --- Cơ sở dữ liệu ---
 <img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/SQL.png" />
+
+## 4. Các project đã thực hiện dựa trên Platform
+
+Một số project sinh viên đã thực hiện:
+
+- #### [Khoá 15](./docs/projects/K15/README.md)  
+  Project Quản lý Đặt vé Xem phim với các chức năng: đăng ký/đăng nhập, đặt vé, quản lý phim, lịch chiếu và doanh thu.  
+
+- #### [Khoá 16](./docs/projects/K16/README.md) (Coming soon)  
+  Các project mới sẽ được cập nhật tại đây.
+
+---
+
+## 5. Các bước cài đặt
+
+**Cài đặt JDK & NetBeans**  
+   - Tải và cài đặt JDK: [https://www.oracle.com/java/technologies/javase-jdk11-downloads.html](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)  
+   - Tải và cài đặt NetBeans IDE: [https://netbeans.apache.org/](https://netbeans.apache.org/)
+
+**Cài đặt MySQL**  
+   - Cài đặt MySQL hoặc XAMPP: [https://www.mysql.com/](https://www.mysql.com/) / [https://www.apachefriends.org/](https://www.apachefriends.org/)  
+   - Khởi động MySQL.
+
+**Tạo cơ sở dữ liệu**  
+   - Mở phpMyAdmin: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)  
+   - Tạo database mới, ví dụ: `movie_booking`  
+   - Import file `db_movie.sql` trong thư mục dự án vào database vừa tạo.
+
+**Cấu hình kết nối database**  
+   - Mở file `Server.java` hoặc file cấu hình JDBC  
+   - Chỉnh sửa thông tin nếu cần:
+   ```java
+   String url = "jdbc:mysql://localhost:3306/movie_booking";
+   String user = "root";
+   String password = "";
+---
