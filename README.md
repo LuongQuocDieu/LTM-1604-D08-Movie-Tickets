@@ -4,7 +4,7 @@
     </a>
 </h2>
 <h2 align="center">
-   ỨNG ĐẶT VÉ XEM PHIM
+   ỨNG DỤNG ĐẶT VÉ XEM PHIM
 </h2>
 <div align="center">
     <p align="center">
