@@ -55,7 +55,7 @@ Người dùng:
 ---
 ## 3. Hình ảnh các chức năng
 
---- Chức năng đăng nhập ---
+--- Chức năng đăng nhập , đăng ký ---
 <img width="1920" height="919" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/dangky.png" />
 <img width="1920" height="919" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/dangnhap.png" />
 --- Giao diện trang chủ ---
