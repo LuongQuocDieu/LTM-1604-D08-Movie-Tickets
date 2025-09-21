@@ -71,19 +71,7 @@ Người dùng:
 --- Cơ sở dữ liệu ---
 <img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/SQL.png" />
 
-## 4. Các project đã thực hiện dựa trên Platform
-
-Một số project sinh viên đã thực hiện:
-
-- #### [Khoá 15](./docs/projects/K15/README.md)  
-  Project Quản lý Đặt vé Xem phim với các chức năng: đăng ký/đăng nhập, đặt vé, quản lý phim, lịch chiếu và doanh thu.  
-
-- #### [Khoá 16](./docs/projects/K16/README.md) (Coming soon)  
-  Các project mới sẽ được cập nhật tại đây.
-
----
-
-## 5. Các bước cài đặt
+## 4. Các bước cài đặt
 
 **Cài đặt JDK & NetBeans**  
    - Tải và cài đặt JDK: [https://www.oracle.com/java/technologies/javase-jdk11-downloads.html](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)  
@@ -106,3 +94,10 @@ Một số project sinh viên đã thực hiện:
    String user = "root";
    String password = "";
 ---
+
+## 📬 **5. Liên hệ**
+- **Sinh viên thực hiện:** **Lương Quốc Diệu**
+- **Khoa công nghệ thông tin – Đại học Đại Nam**  
+- 🌐 Website: [https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)  
+- 📧 Email: [peakk4@gmail.com]
+- 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab) 
