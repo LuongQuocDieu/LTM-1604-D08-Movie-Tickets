@@ -100,7 +100,7 @@ Người dùng:
 - **Sinh viên thực hiện:** **Lương Quốc Diệu**
 - **Khoa công nghệ thông tin – Đại học Đại Nam**  
 - 🌐 Website: [https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)  
-- 📧 Email: [peakk4@gmail.com]
+- 📧 Email: [luongquocdieu2004@gmail.com]
 - 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab) 
 
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
