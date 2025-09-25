@@ -61,9 +61,9 @@ Người dùng:
 --- Giao diện trang chủ ---
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/MainUI.png" />
 --- Quản lý lich Trieu ---
-<img width="1920" height="923" alt="image" src="https://github.com/user-attachments/assets/e7554fab-9f6b-4150-8586-359cea51f592" />
+<img width="1920" height="923" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyLichTrieu.png" />
 --- Quản lý phim ---
-<img width="1920" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyLichTrieu.png" />
+<img width="1920" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyPhim.png" />
 --- Quản lý xuất triếu ---
 <img width="1920" height="435" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyPhongTrieu.png" />
 --- Quản lý phòng triếu ---
