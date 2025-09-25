@@ -96,7 +96,7 @@ Người dùng:
 
 ## 5. Liên hệ
 - **Sinh viên thực hiện:** **Lương Quốc Diệu**
-- **Khoa công nghệ thông tin – Đại học Đại Nam**  
+- **Khoa công nghệ thông tin – Trường Đại học Đại Nam**  
 - 🌐 Website: [https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)  
 - 📧 Email: [luongquocdieu2004@gmail.com]
 - 📱 Fanpage: [AIoTLab - FIT DNU](https://www.facebook.com/DNUAIoTLab) 
