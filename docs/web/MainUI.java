@@ -23,19 +23,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-/**
- * MainUI.java
- * Phiên bản chỉnh sửa: tất cả chức năng được nối vào giao diện mới.
- *
- * Yêu cầu chính đã thực hiện:
- * - TabBar hoạt động: Trang chủ / Phim / Xuất chiếu / Liên hệ / Tài khoản
- * - Khi bấm Phim mới load danh sách phim
- * - Chọn phim hiển thị chi tiết (vị trí đặt vé xuất hiện ngay dưới "90 phút")
- * - Xuất chiếu hiển thị vé đã đặt
- * - Liên hệ hiển thị phương thức liên hệ
- *
- * Thêm: sử dụng CSDL.getConnection() để truy vấn DB nếu có.
- */
 public class MainUI extends JFrame {
 
     // ---------------- CONFIG ----------------
@@ -182,44 +169,52 @@ public class MainUI extends JFrame {
         movieDetailPanel.setLayout(new BoxLayout(movieDetailPanel, BoxLayout.Y_AXIS));
         movieDetailPanel.setBorder(new EmptyBorder(20,20,20,20));
 
-        lblDetailPoster.setPreferredSize(new Dimension(220, 280));
-        lblDetailPoster.setBorder(BorderFactory.createLineBorder(new Color(220,220,220)));
-        lblDetailPoster.setHorizontalAlignment(SwingConstants.CENTER);
-        movieDetailPanel.add(lblDetailPoster);
-        movieDetailPanel.add(Box.createRigidArea(new Dimension(0,10)));
+        JPanel detailTop = new JPanel(new BorderLayout(10, 0)); // khoảng cách 10px
 
-        lblDetailTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        movieDetailPanel.add(lblDetailTitle);
-        movieDetailPanel.add(Box.createRigidArea(new Dimension(0,6)));
+     // Poster bên trái
+     lblDetailPoster.setPreferredSize(new Dimension(220, 280));
+     lblDetailPoster.setHorizontalAlignment(SwingConstants.CENTER);
+     lblDetailPoster.setVerticalAlignment(SwingConstants.CENTER);
+     lblDetailPoster.setBorder(BorderFactory.createLineBorder(new Color(220,220,220)));
+     detailTop.add(lblDetailPoster, BorderLayout.WEST);
 
-        lblDetailGenre.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblDetailGenre.setForeground(new Color(100,100,100));
-        movieDetailPanel.add(lblDetailGenre);
-        movieDetailPanel.add(Box.createRigidArea(new Dimension(0,6)));
+     // Thông tin phim bên phải (căn giữa theo poster)
+     JPanel infoWrapper = new JPanel(new GridBagLayout()); // giúp canh giữa dọc
+     JPanel infoPanel = new JPanel();
+     infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
 
-        lblDetailDuration.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        lblDetailDuration.setForeground(new Color(60,60,60));
-        movieDetailPanel.add(lblDetailDuration);
-        movieDetailPanel.add(Box.createRigidArea(new Dimension(0,8)));
+     lblDetailTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
+     lblDetailGenre.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+     lblDetailGenre.setForeground(new Color(100,100,100));
+     lblDetailDuration.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+     lblDetailDuration.setForeground(new Color(60,60,60));
 
-        // Nút Đặt vé phải nằm dưới "90 phút" => đặt ngay sau lblDetailDuration as required
-        btnDetailBook.setAlignmentX(Component.LEFT_ALIGNMENT);
-        btnDetailBook.setBackground(new Color(30,144,255));
-        btnDetailBook.setForeground(Color.WHITE);
-        btnDetailBook.setPreferredSize(new Dimension(160,36));
-        btnDetailBook.setVisible(false); // hidden until a movie is selected
-        movieDetailPanel.add(btnDetailBook);
+     infoPanel.add(lblDetailTitle);
+     infoPanel.add(Box.createRigidArea(new Dimension(0,6)));
+     infoPanel.add(lblDetailGenre);
+     infoPanel.add(Box.createRigidArea(new Dimension(0,6)));
+     infoPanel.add(lblDetailDuration);
+     infoPanel.add(Box.createRigidArea(new Dimension(0,12)));
 
-        movieDetailPanel.add(Box.createRigidArea(new Dimension(0,8)));
+     btnDetailBook.setBackground(new Color(30,144,255));
+     btnDetailBook.setForeground(Color.WHITE);
+     btnDetailBook.setPreferredSize(new Dimension(160,36));
+     btnDetailBook.setVisible(false);
+     infoPanel.add(btnDetailBook);
 
-        taDetailDesc.setEditable(false);
-        taDetailDesc.setLineWrap(true);
-        taDetailDesc.setWrapStyleWord(true);
-        taDetailDesc.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        taDetailDesc.setBorder(BorderFactory.createEtchedBorder());
-        taDetailDesc.setBackground(new Color(250,250,250));
-        taDetailDesc.setMaximumSize(new Dimension(350,200));
-        movieDetailPanel.add(taDetailDesc);
+     // Dùng GridBagLayout để căn giữa infoPanel so với poster
+     GridBagConstraints gbc = new GridBagConstraints();
+     gbc.gridx = 0;
+     gbc.gridy = 0;
+     gbc.anchor = GridBagConstraints.CENTER;
+     infoWrapper.add(infoPanel, gbc);
+
+     detailTop.add(infoWrapper, BorderLayout.CENTER);
+
+     // add cụm này vào movieDetailPanel
+     movieDetailPanel.add(detailTop);
+     movieDetailPanel.add(Box.createRigidArea(new Dimension(0,10)));
+
 
         // Hidden field for storing selected show id (optional)
         tfDetailShowId.setVisible(false);
@@ -229,7 +224,17 @@ public class MainUI extends JFrame {
         JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, movieDetailPanel);
         split.setResizeWeight(0.70);
         moviesPanel.add(split, BorderLayout.CENTER);
-
+        
+        taDetailDesc.setEditable(false);
+        taDetailDesc.setLineWrap(true);
+        taDetailDesc.setWrapStyleWord(true);
+        taDetailDesc.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        taDetailDesc.setBorder(BorderFactory.createEtchedBorder());
+        taDetailDesc.setBackground(new Color(250,250,250));
+        taDetailDesc.setMaximumSize(new Dimension(350,200));
+        taDetailDesc.setAlignmentX(Component.CENTER_ALIGNMENT);  // THÊM
+        movieDetailPanel.add(taDetailDesc);
+        
         // Footer small
         JPanel footer = new JPanel();
         footer.setBorder(new EmptyBorder(10,10,10,10));
@@ -403,7 +408,8 @@ public class MainUI extends JFrame {
     }
 
     private JPanel createMovieCard(Movie m) {
-        JPanel card = new JPanel(new BorderLayout());
+        JPanel card = new JPanel();
+        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setPreferredSize(new Dimension(200, 300));
         card.setBackground(Color.WHITE);
         card.setBorder(BorderFactory.createCompoundBorder(
@@ -411,57 +417,66 @@ public class MainUI extends JFrame {
                 new EmptyBorder(8,8,8,8)
         ));
 
+        // ================== Hình ảnh ==================
         JLabel img = new JLabel();
         img.setPreferredSize(new Dimension(180, 220));
         img.setHorizontalAlignment(SwingConstants.CENTER);
+        img.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         if (m.poster != null && !m.poster.isEmpty()) {
             ImageIcon ic = loadImageIconSafely(m.poster, 180, 220);
-            if (ic != null) img.setIcon(ic);
-            else img.setText("No Image");
+            if (ic != null) {
+                img.setIcon(ic);
+                img.setText(null);
+            } else {
+                img.setText("No Image");
+            }
         } else {
             img.setText("No Image");
         }
-        card.add(img, BorderLayout.NORTH);
+        img.setAlignmentX(Component.CENTER_ALIGNMENT); // căn giữa
+        card.add(img);
 
-        JPanel info = new JPanel();
-        info.setLayout(new BoxLayout(info, BoxLayout.Y_AXIS));
-        info.setOpaque(false);
+        card.add(Box.createRigidArea(new Dimension(0, 8)));
 
+        // ================== Thông tin phim ==================
         JLabel title = new JLabel("<html><b>" + m.title + "</b></html>");
         title.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        info.add(title);
+        card.add(title);
 
         JLabel genre = new JLabel(m.genre);
         genre.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         genre.setForeground(new Color(90,90,90));
         genre.setAlignmentX(Component.CENTER_ALIGNMENT);
-        info.add(genre);
+        card.add(genre);
 
         JLabel dur = new JLabel(m.duration > 0 ? (m.duration + " phút") : "");
         dur.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         dur.setForeground(new Color(90,90,90));
         dur.setAlignmentX(Component.CENTER_ALIGNMENT);
-        info.add(dur);
+        card.add(dur);
+
+        card.add(Box.createRigidArea(new Dimension(0, 8)));
 
         JButton btn = new JButton("Xem chi tiết");
-        btn.setAlignmentX(Component.CENTER_ALIGNMENT);
         btn.setBackground(new Color(30,144,255));
         btn.setForeground(Color.WHITE);
+        btn.setAlignmentX(Component.CENTER_ALIGNMENT); // căn giữa
         btn.addActionListener(e -> selectMovieShowDetail(m));
-        info.add(Box.createRigidArea(new Dimension(0,8)));
-        info.add(btn);
+        card.add(btn);
 
-        // Allow clicking the whole card to select movie as well
+        // ================== Click cả card ==================
         card.addMouseListener(new MouseAdapter() {
-            @Override public void mouseClicked(MouseEvent e) {
+            @Override
+            public void mouseClicked(MouseEvent e) {
                 selectMovieShowDetail(m);
             }
         });
 
-        card.add(info, BorderLayout.CENTER);
         return card;
     }
+
 
     private void selectMovieShowDetail(Movie m) {
         // Populate detail panel fields

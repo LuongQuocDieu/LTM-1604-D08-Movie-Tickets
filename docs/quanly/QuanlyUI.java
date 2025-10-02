@@ -63,6 +63,17 @@ public class QuanlyUI extends JFrame {
     }
 
     private void initUI() {
+        // Tăng font toàn bộ UI
+        Font bigFont = new Font("Segoe UI", Font.PLAIN, 16);
+        java.util.Enumeration<Object> keys = UIManager.getDefaults().keys();
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+            if (value instanceof Font) {
+                UIManager.put(key, bigFont);
+            }
+        }
+
         tabbedPane = new JTabbedPane();
         add(tabbedPane);
 
@@ -73,6 +84,8 @@ public class QuanlyUI extends JFrame {
         buildBookingsTab();
         buildStatsTab();
     }
+
+
 
     // ---------------------- Movies Tab ----------------------
     private void buildMoviesTab() {
