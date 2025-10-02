@@ -12,14 +12,15 @@ public class WebUI extends JFrame {
 
     public WebUI() {
         setTitle("WebUI - Đăng ký & Đăng nhập");
-        setSize(500, 400);
+        setSize(500, 420);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JTabbedPane tabbedPane = new JTabbedPane();
 
-        // --- Đăng ký ---
+        // --- Panel Đăng ký ---
         JPanel registerPanel = new JPanel(new GridBagLayout());
+        registerPanel.setBorder(BorderFactory.createTitledBorder("Thông tin đăng ký"));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -54,18 +55,19 @@ public class WebUI extends JFrame {
         txtConfirmPass = new JPasswordField(15);
         registerPanel.add(txtConfirmPass, gbc);
 
-        // nút đăng ký nhỏ và căn giữa
+        // Nút đăng ký
         gbc.gridx = 0; gbc.gridy++;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         btnRegister = new JButton("Đăng ký");
-        btnRegister.setPreferredSize(new Dimension(100, 30));
+        btnRegister.setPreferredSize(new Dimension(120, 30));
         registerPanel.add(btnRegister, gbc);
 
         tabbedPane.add("Đăng ký", registerPanel);
 
-        // --- Đăng nhập ---
+        // --- Panel Đăng nhập ---
         JPanel loginPanel = new JPanel(new GridBagLayout());
+        loginPanel.setBorder(BorderFactory.createTitledBorder("Đăng nhập hệ thống"));
         GridBagConstraints gbc2 = new GridBagConstraints();
         gbc2.insets = new Insets(8, 8, 8, 8);
         gbc2.fill = GridBagConstraints.HORIZONTAL;
@@ -73,7 +75,7 @@ public class WebUI extends JFrame {
         gbc2.gridx = 0; gbc2.gridy = 0;
         loginPanel.add(new JLabel("Tên/Email/SĐT:"), gbc2);
         gbc2.gridx = 1;
-        txtLoginUser = new JTextField(12); // nhỏ gọn hơn
+        txtLoginUser = new JTextField(12);
         loginPanel.add(txtLoginUser, gbc2);
 
         gbc2.gridx = 0; gbc2.gridy++;
@@ -86,7 +88,7 @@ public class WebUI extends JFrame {
         gbc2.gridwidth = 2;
         gbc2.anchor = GridBagConstraints.CENTER;
         btnLogin = new JButton("Đăng nhập");
-        btnLogin.setPreferredSize(new Dimension(100, 30));
+        btnLogin.setPreferredSize(new Dimension(120, 30));
         loginPanel.add(btnLogin, gbc2);
 
         tabbedPane.add("Đăng nhập", loginPanel);
@@ -98,6 +100,21 @@ public class WebUI extends JFrame {
         btnLogin.addActionListener(e -> loginUser());
     }
 
+    // --- Hàm gửi request đến server ---
+    private String sendRequest(String request) {
+        try (Socket socket = new Socket("localhost", 2040);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+
+            out.println(request);
+            return in.readLine();
+
+        } catch (Exception e) {
+            return "ERROR: " + e.getMessage();
+        }
+    }
+
+    // --- Xử lý đăng ký ---
     private void registerUser() {
         String hoTen = txtUser.getText().trim();
         String email = txtEmail.getText().trim();
@@ -105,54 +122,48 @@ public class WebUI extends JFrame {
         String password = new String(txtPass.getPassword()).trim();
         String confirm = new String(txtConfirmPass.getPassword()).trim();
 
-        if (!password.equals(confirm)) {
-            JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không khớp!");
-            return;
-        }
         if (hoTen.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
             return;
         }
-
-        try (Socket socket = new Socket("localhost", 2039);
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-
-            out.println("REGISTER;" + hoTen + ";" + email + ";" + phone + ";" + password);
-
-            String response = in.readLine();
-            if (response != null) {
-                JOptionPane.showMessageDialog(this, response);
-            } else {
-                JOptionPane.showMessageDialog(this, "Server không phản hồi!");
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Lỗi kết nối server: " + ex.getMessage());
+        if (!password.equals(confirm)) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu nhập lại không khớp!");
+            return;
         }
+        if (!email.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+            JOptionPane.showMessageDialog(this, "Email không hợp lệ!");
+            return;
+        }
+        if (!phone.matches("\\d{9,11}")) {
+            JOptionPane.showMessageDialog(this, "Số điện thoại phải từ 9-11 số!");
+            return;
+        }
+        if (password.length() < 6) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu phải ít nhất 6 ký tự!");
+            return;
+        }
+
+        String response = sendRequest("REGISTER;" + hoTen + ";" + email + ";" + phone + ";" + password);
+        JOptionPane.showMessageDialog(this, response != null ? response : "Server không phản hồi!");
     }
 
+    // --- Xử lý đăng nhập ---
     private void loginUser() {
-        String loginUser = txtLoginUser.getText();
+        String loginUser = txtLoginUser.getText().trim();
         String pass = new String(txtLoginPass.getPassword());
 
-        try (Socket socket = new Socket("localhost", 2039);
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
+        if (loginUser.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin!");
+            return;
+        }
 
-            out.println("LOGIN;" + loginUser + ";" + pass);
-            String response = in.readLine();
-            if (response != null && response.startsWith("OK")) {
-                JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-                this.dispose();
-                new MainUI(txtLoginUser.getText()).setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu!");
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        String response = sendRequest("LOGIN;" + loginUser + ";" + pass);
+        if (response != null && response.startsWith("OK")) {
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
+            this.dispose();
+            new MainUI(loginUser).setVisible(true); // chuyển sang MainUI
+        } else {
+            JOptionPane.showMessageDialog(this, response != null ? response : "Sai tài khoản hoặc mật khẩu!");
         }
     }
 
