@@ -60,12 +60,20 @@ Người dùng:
 <img width="1920" height="919" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/DangKy.png" />
 --- Giao diện trang chủ ---
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/MainUI.png" />
+--- Giao diện danh sách phim ---
+<img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/DanhSachPhim.png" />
+--- Giao diện lịch sử đặt vé ---
+<img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/LichSu.png" />
+--- Giao diện liên hệ ---
+<img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/LienHe.png" />
+--- Giao diện liên hệ ---
+<img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/LienHe.png" />
 --- Quản lý lich chiếu ---
 <img width="1920" height="923" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyLichTrieu.png" />
 --- Quản lý phim ---
 <img width="1920" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyPhim.png" />
 --- Quản lý phòng chiếu ---
-<img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyPhongTrieu.png" />
+<img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/QuanLyLichTrieu.png" />
 --- Cơ sở dữ liệu ---
 <img width="1397" height="693" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/SQL.png" />
 
