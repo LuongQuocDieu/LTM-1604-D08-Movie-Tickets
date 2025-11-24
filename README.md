@@ -64,7 +64,7 @@ Người dùng:
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/TrangPhim.png" />
 --- Giao diện chọn xuất chiếu ---
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/ChonXuatChieu.png" />
---- Giao diện chọn ghe ---
+--- Giao diện chọn ghế ---
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/ChonGhe.png" />
 --- Giao diện giỏ hàng ---
 <img width="1910" height="921" alt="image" src="https://github.com/LuongQuocDieu/LTM-1604-D08-Movie-Tickets/blob/main/docs/GioHang.png" />
