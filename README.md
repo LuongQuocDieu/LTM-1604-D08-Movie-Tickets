@@ -18,7 +18,6 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
 
 </div>
----
 
 ## 1. Giới thiệu hệ thống
 
